@@ -1,0 +1,238 @@
+:root {
+    --bg: #0b0d13;
+    --nav: #0d1117;
+    --card: #151921;
+    --accent: #0066ff;
+    --border: #21262d;
+    --text-dim: #ffffff;
+}
+
+* { box-sizing: border-box; font-family: 'Inter', sans-serif; }
+body { margin: 0; background: var(--bg); color: rgb(255, 255, 255); overflow: hidden; }
+
+/* Welcome Screen */
+.welcome-overlay {
+    position: fixed; inset: 0; background: var(--bg);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 2000; transition: opacity 0.6s ease;
+}
+.welcome-content { text-align: center; }
+.logo-large { font-size: 64px; font-weight: 800; margin: 0; }
+.logo-large span { color: var(--accent); }
+.enter-btn {
+    margin-top: 30px; background: var(--accent); color: white;
+    border: none; padding: 16px 40px; border-radius: 12px;
+    font-weight: bold; cursor: pointer; transition: 0.3s;
+}
+.enter-btn:hover { transform: scale(1.05); filter: brightness(1.2); }
+
+/* Layout */
+.elite-app { display: flex; height: 100vh; }
+
+/* Sidebar */
+.side-nav {
+    width: 280px; background: var(--nav); border-right: 1px solid var(--border);
+    padding: 30px 20px;
+}
+.logo { font-size: 24px; font-weight: 800; margin-bottom: 40px; color: white; }
+.logo span { color: var(--accent); }
+
+.nav-section { margin-bottom: 30px; }
+.nav-section small { color: var(--text-dim); display: block; margin-bottom: 12px; font-size: 11px; font-weight: 800; letter-spacing: 1px; }
+
+.nav-item {
+    width: 100%; padding: 12px 15px; background: none; border: none;
+    color: var(--text-dim); text-align: left; cursor: pointer;
+    border-radius: 8px; transition: 0.2s; font-weight: 600; margin-bottom: 4px;
+}
+.nav-item:hover { background: #1c2128; color: white; }
+.nav-item.active { background: rgba(88, 166, 255, 0.1); color: var(--accent); }
+
+/* Main Stage */
+.main-stage { flex: 1; padding: 50px 60px; overflow-y: auto; }
+#mode-title { font-size: 36px; margin: 0 0 40px 0; font-weight: 800; }
+
+.search-wrapper {
+    background: #000; border: 1px solid var(--border); padding: 12px 20px;
+    border-radius: 10px; display: flex; align-items: center; width: 350px; margin-bottom: 40px;
+}
+.search-wrapper input { background: none; border: none; color: white; margin-left: 10px; outline: none; width: 100%; }
+
+/* Cards */
+.leaderboard-grid { display: flex; flex-direction: column; gap: 10px; }
+.player-card {
+    background: var(--card); border: 1px solid var(--border);
+    padding: 18px 35px; border-radius: 15px; display: flex;
+    align-items: center; justify-content: space-between; cursor: pointer;
+    transition: 0.2s; opacity: 0;
+}
+.player-card:hover { border-color: var(--accent); background: #1c2128; transform: translateX(5px); }
+
+.rank-info { display: flex; align-items: center; gap: 20px; }
+.num { color: var(--text-dim); font-weight: 800; width: 30px; }
+.av { width: 45px; height: 45px; border-radius: 8px; border: 1px solid #333; }
+.region-text { color: #ff4d4d; font-weight: 800; font-size: 13px; }
+
+.tier-box { padding: 8px 20px; border-radius: 10px; font-weight: 800; border: 1px solid #ff4d4d; color: #ff4d4d; min-width: 80px; text-align: center; }
+.tier-box.lt { color: var(--accent); border-color: var(--accent); }
+
+/* Modal */
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); display: none; justify-content: center; align-items: center; z-index: 3000; backdrop-filter: blur(8px); }
+.modal-content { background: var(--card); padding: 50px; border-radius: 25px; width: 420px; text-align: center; border: 1px solid var(--border); position: relative; }
+
+.modal-back-btn { position: absolute; top: 20px; left: 20px; background: #21262d; border: 1px solid #333; color: white; padding: 10px 18px; border-radius: 12px; cursor: pointer; font-weight: bold; }
+.modal-back-btn:hover { background: #30363d; color: var(--accent); }
+
+.modal-p-avatar img { width: 120px; border-radius: 20px; border: 3px solid var(--accent); margin-bottom: 20px; }
+.discord-link-btn { display: inline-block; margin-top: 20px; background: #5865F2; color: white; padding: 12px 25px; border-radius: 10px; text-decoration: none; font-weight: bold; }
+.r-row { background: rgba(88, 166, 255, 0.1); padding: 20px; border-radius: 15px; margin-top: 30px; display: flex; justify-content: space-around; align-items: center; }
+
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* --- Background Animation --- */
+body {
+    margin: 0;
+    background: radial-gradient(circle at center, #1a1f2c 0%, #0b0d13 100%);
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* လှုပ်ရှားနေတဲ့ Background စက်ဝိုင်းများ */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/stardust.png');
+    opacity: 0.2;
+    z-index: -1;
+}
+
+/* --- Animated Glowing Text --- */
+.logo-large, .logo {
+    text-shadow: 0 0 10px rgba(88, 166, 255, 0.5);
+    animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+    from { text-shadow: 0 0 10px rgba(88, 166, 255, 0.3); }
+    to { text-shadow: 0 0 25px rgba(88, 166, 255, 0.8), 0 0 10px rgba(88, 166, 255, 0.4); }
+}
+
+/* --- Top 3 Glowing Cards --- */
+
+/* #1 Gold Ranking */
+.player-card.rank-1 {
+    border: 2px solid #ffd700 !important;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    background: linear-gradient(90deg, #151921 0%, #2c2401 100%);
+    position: relative;
+    overflow: hidden;
+}
+.player-card.rank-1::after {
+    content: "TOP 1";
+    position: absolute; right: 10px; top: -5px;
+    font-size: 40px; font-weight: 900; color: rgba(255, 215, 0, 0.05);
+}
+
+/* #2 Iron Ranking */
+.player-card.rank-2 {
+    border: 2px solid #e5e5e5 !important;
+    box-shadow: 0 0 15px rgba(229, 229, 229, 0.2);
+    background: linear-gradient(90deg, #151921 0%, #252525 100%);
+}
+
+/* #3 Bronze Ranking */
+.player-card.rank-3 {
+    border: 2px solid #cd7f32 !important;
+    box-shadow: 0 0 15px rgba(205, 127, 50, 0.2);
+    background: linear-gradient(90deg, #151921 0%, #201305 100%);
+}
+
+/* Floating Animation for cards */
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Special Pulse for Rank 1 */
+.rank-1 .av {
+    border: 2px solid #ffd700 !important;
+    animation: goldPulse 2s infinite;
+}
+
+@keyframes goldPulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+}
+
+.player-card {
+    background: rgba(21, 25, 33, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ကွန်ပျူတာမှာ ခလုတ်ကို ဖျောက်ထားမယ် */
+.mobile-menu-btn {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 3001;
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block; 
+    }
+
+    .side-nav {
+        position: fixed;
+        left: -280px; 
+        transition: 0.3s;
+        z-index: 3000;
+    }
+
+    
+    .side-nav.active {
+        left: 0;
+    }
+
+    .main-stage {
+        padding: 80px 20px 20px 20px; 
+    }
+}
+
+.discord-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: px;
+    margin-top: 20px;
+    background: #5865F2; /* Discord Official Color */
+    color: white;
+    padding: 12px 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    border: none;
+    box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+}
+
+.discord-btn:hover {
+    background: #4752c4;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(88, 101, 242, 0.5);
+}
+
+.discord-btn i {
+    font-size: 20px;
+}
