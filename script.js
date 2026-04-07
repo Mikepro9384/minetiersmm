@@ -259,3 +259,5 @@ style.innerHTML = `
   }
 `;
 document.head.appendChild(style);
+
+console.log("new update");
