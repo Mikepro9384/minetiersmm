@@ -1,112 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HolyTiers | Myanmar PvP</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MineTiers | Myanmar PvP Rankings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="bg-grid"></div>
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
 
-<div id="welcome-screen" class="welcome-overlay">
+  <div id="welcome-screen" class="welcome-overlay">
     <div class="welcome-content">
-        <h1 class="logo-large">MINE<span>TIERS</span></h1>
-        <p>The Official Mine Tier List</p>
-        <button class="enter-btn" onclick="enterSite()">EXPLORE RANKINGS <i class="fa-solid fa-bolt"></i></button>
-        <h6>Developer - MikeTheClover</h6>
-        <a id="modalDiscordLink" href="https://discord.gg/S8wdVJBp8N" target="_blank" class="discord-btn">
-        <i class="fa-brands fa-discord"></i> JOIN DISCORD
+      <div class="welcome-badge">MYANMAR PVP COMMUNITY</div>
+      <h1 class="logo-large">MINE<span>TIERS</span></h1>
+      <p class="welcome-text">The official Myanmar tier list inspired ranking experience.</p>
+
+      <div class="welcome-actions">
+        <button class="enter-btn click-animate" onclick="enterSite()">
+          Explore Rankings <i class="fa-solid fa-bolt"></i>
+        </button>
+
+        <a href="https://discord.gg/S8wdVJBp8N" target="_blank" class="discord-btn click-animate">
+          <i class="fa-brands fa-discord"></i>
+          Join Discord
         </a>
-        
-</div>
+      </div>
+
+      <div class="welcome-meta">Developer - MikeTheClover</div>
     </div>
-</div>
+  </div>
 
+  <button class="mobile-menu-btn click-animate" id="mobileMenuBtn" aria-label="Toggle menu">
+    <i class="fa-solid fa-bars"></i>
+  </button>
 
-
-<div id="main-content" class="elite-app" style="display: none;">
-    <aside class="side-nav">
+  <div id="main-content" class="app-shell" style="display: none;">
+    <aside class="side-nav" id="sidebar">
+      <div class="side-top">
         <div class="logo">MINE<span>TIERS</span></div>
-        <nav class="nav-container">
-            <div class="nav-section">
-                <small>GENERAL</small>
-                <button class="nav-item active" onclick="switchMode('Overall')">🏆 Overall</button>
-            </div>
-            <div class="nav-section">
-                <small>CORE MODES</small>
-                <button class="nav-item" onclick="switchMode('Sword')">⚔️ Sword</button>
-                <button class="nav-item" onclick="switchMode('Axe')">🪓 Axe</button>
-                <button class="nav-item" onclick="switchMode('Mace')">🔱 Mace</button>
-                <button class="nav-item" onclick="switchMode('Diamond SMP')">🌍 Diamond SMP</button>
-            </div>
-            <div class="nav-section">
-                <small>POTION & CRYSTAL</small>
-                <button class="nav-item" onclick="switchMode('Neth Pot')">🧪 Neth Pot</button>
-                <button class="nav-item" onclick="switchMode('Crystal')">🔮 Crystal</button>
-            </div>
-        </nav>
+        <div class="server-box">
+          <div class="server-icon"><i class="fa-solid fa-cube"></i></div>
+          <div>
+            <small>Server</small>
+            <h4>mcpvp.club</h4>
+          </div>
+        </div>
+      </div>
+
+      <nav class="nav-container">
+        <div class="nav-section">
+          <small>GENERAL</small>
+          <button class="nav-item active" onclick="switchMode('Overall')">
+            <i class="fa-solid fa-trophy"></i> Overall
+          </button>
+        </div>
+
+        <div class="nav-section">
+          <small>CORE MODES</small>
+          <button class="nav-item" onclick="switchMode('Sword')">
+            <i class="fa-solid fa-khanda"></i> Sword
+          </button>
+          <button class="nav-item" onclick="switchMode('Axe')">
+            <i class="fa-solid fa-hammer"></i> Axe
+          </button>
+          <button class="nav-item" onclick="switchMode('Mace')">
+            <i class="fa-solid fa-star-and-crescent"></i> Mace
+          </button>
+          <button class="nav-item" onclick="switchMode('Diamond SMP')">
+            <i class="fa-solid fa-gem"></i> Diamond SMP
+          </button>
+        </div>
+
+        <div class="nav-section">
+          <small>POTION & CRYSTAL</small>
+          <button class="nav-item" onclick="switchMode('Neth Pot')">
+            <i class="fa-solid fa-flask"></i> Neth Pot
+          </button>
+          <button class="nav-item" onclick="switchMode('Crystal')">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Crystal
+          </button>
+        </div>
+      </nav>
     </aside>
 
     <main class="main-stage">
-        <header class="stage-header">
-            <h1 id="mode-title">Overall Rankings</h1>
-            <div class="header-right">
-                <div class="search-wrapper">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" id="searchInput" placeholder="Search Myanmar players..." onkeyup="filterPlayers()">
-                </div>
-            </div>
-        </header>
+      <header class="stage-header">
+        <div>
+          <div class="page-chip">Season Rankings</div>
+          <h1 id="mode-title">Overall Rankings</h1>
+          <p class="page-subtitle">Top Myanmar PvP players ranked by points and tier placements.</p>
+        </div>
 
-        <div class="leaderboard-grid" id="playerList">
-            </div>
+        <div class="header-right">
+          <div class="search-wrapper">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search Myanmar players..."
+              onkeyup="filterPlayers()"
+            >
+          </div>
+        </div>
+      </header>
+
+      <div class="table-header">
+        <span>#</span>
+        <span>Player</span>
+        <span>Region</span>
+        <span>Rank</span>
+      </div>
+
+      <div class="leaderboard-grid" id="playerList"></div>
     </main>
-</div>
+  </div>
 
-<div id="playerModal" class="modal-overlay">
+  <div id="playerModal" class="modal-overlay">
     <div class="modal-content">
-        <button class="modal-back-btn" onclick="closeModal()">
-            <i class="fa-solid fa-arrow-left"></i> Back to List
-        </button>
-        
+      <button class="modal-close click-animate" onclick="closeModal()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="modal-top">
         <div class="modal-p-avatar">
-            <img id="modalAvatar" src="" alt="">
+          <img id="modalAvatar" src="" alt="avatar">
         </div>
-        
+
         <div class="modal-p-details">
-            <h1 id="modalName">Name</h1>
-            <div class="region-badge">ASIA / MM</div>
-            <a id="modalDiscord" href="#" target="_blank" class="discord-link-btn">
-                <i class="fa-brands fa-discord"></i> Connect Discord
-            </a>
+          <div class="modal-mini">PLAYER PROFILE</div>
+          <h1 id="modalName">Name</h1>
+          <div class="region-badge">ASIA / MM</div>
+
+          <a id="modalDiscord" href="https://discord.gg/S8wdVJBp8N" target="_blank" class="discord-link-btn click-animate">
+            <i class="fa-brands fa-discord"></i>
+            Connect Discord
+          </a>
         </div>
-        
-        <div class="modal-p-ranks">
-            <div class="r-row gold-rank">
-                <span id="modalPosition" class="r-num">1.</span>
-                <span id="modalCurrentMode" class="r-mode">RANK</span>
-                <span id="modalTier" class="r-pts">HT1</span>
-            </div>
-        
+      </div>
+
+      <div class="modal-p-ranks">
+        <div class="r-row">
+          <span id="modalPosition" class="r-num">1.</span>
+          <span id="modalCurrentMode" class="r-mode">OVERALL</span>
+          <span id="modalTier" class="r-pts">20 Pts</span>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 
-<button class="mobile-menu-btn" onclick="toggleMenu()">
-    <i class="fa-solid fa-bars"></i>
-</button>
-
-<aside class="side-nav" id="sidebar">
-    </aside>
-
-    <div class="modal-p-details">
-    <h1 id="modalName">Name</h1>
-    <div class="region-badge">ASIA / MM</div>
-    
-    
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
