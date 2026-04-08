@@ -76,7 +76,7 @@ const allData = {
 
   "Neth Pot": [
     { name: "Marvelz_", tier: "HT1" },
-    { name: "DRFOXCraft", tier: "HT1"},
+    { name: "DRFOXCraft", tier: "LT1"},
     { name: "GwayPyanGy", tier: "HT2" },
     { name: "GorgeTheGuild", tier: "LT2" },
     { name: "MikeTheClover", tier: "HT3" },
