@@ -1,6 +1,6 @@
 const allData = {
   Overall: [
-    { name: "Agentjackkzz", pts: 20 },
+    { name: "DRFOXCraft", pts: 20},
     { name: "Marvelz_", pts: 19 },
     { name: "GwayPyanGy", pts: 18 },
     { name: "GorgeTheGuild", pts: 17 },
@@ -19,7 +19,8 @@ const allData = {
   ],
 
   Sword: [
-    { name: "Marvelz_", tier: "HT1" },
+    { name: "DRFOXCraft", tier: "HT1"},
+    { name: "Marvelz_", tier: "LT1" },
     { name: "GwayPyanGy", tier: "HT2" },
     { name: "naomigrief", tier: "LT2" },
     { name: "GorgeTheGuild", tier: "HT3" },
@@ -41,12 +42,14 @@ const allData = {
     { name: "naomigrief", tier: "HT4" },
     { name: "Mglay", tier: "LT4" },
     { name: "babagyi", tier: "HT5" },
-    { name: "ryan", tier: "LT5" }
+    { name: "ryan", tier: "LT5" },
+    { name: "DRFOXCraft", tier: "-"},
   ],
 
   Mace: [
-    { name: "Marvelz_", tier: "LT1" },
-    { name: "GwayPyanGy", tier: "HT2" },
+    { name: "Marvelz_", tier: "HT1" },
+    { name: "GwayPyanGy", tier: "LT1" },
+    { name: "DRFOXCraft", tier: "HT2"},
     { name: "GorgeTheGuild", tier: "LT2" },
     { name: "ryan", tier: "HT3" },
     { name: "slow", tier: "LT3" },
@@ -58,6 +61,7 @@ const allData = {
   ],
 
   "Diamond SMP": [
+    { name: "DRFOXCraft", tier: "HT1"},
     { name: "Marvelz_", tier: "LT1" },
     { name: "GwayPyanGy", tier: "HT2" },
     { name: "GorgeTheGuild", tier: "LT2" },
@@ -72,6 +76,7 @@ const allData = {
 
   "Neth Pot": [
     { name: "Marvelz_", tier: "HT1" },
+    { name: "DRFOXCraft", tier: "HT1"},
     { name: "GwayPyanGy", tier: "HT2" },
     { name: "GorgeTheGuild", tier: "LT2" },
     { name: "MikeTheClover", tier: "HT3" },
@@ -84,6 +89,7 @@ const allData = {
   ],
 
   Crystal: [
+    { name: "DRFOXCraft", tier: "HT1"},
     { name: "GwayPyanGy", tier: "LT1" },
     { name: "Marvelz_", tier: "HT2" },
     { name: "naomigrief", tier: "LT2" },
@@ -207,7 +213,7 @@ function openModal(name, value, rank) {
   document.getElementById("modalPosition").textContent = `${rank}.`;
   document.getElementById("modalCurrentMode").textContent = currentMode.toUpperCase();
   document.getElementById("modalTier").textContent = value;
-  document.getElementById("modalDiscord").href = "https://discord.gg/S8wdVJBp8N";
+  document.getElementById("modalDiscord").href = "https://discord.gg/4bQaeDNmj6";
 
   playerModal.style.display = "flex";
 }
